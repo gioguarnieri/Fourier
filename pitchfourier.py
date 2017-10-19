@@ -19,7 +19,7 @@ def akbk(x, y, k):
 
 x=[-np.pi]
 y=[]
-fileread=open("pitch.txt", 'r')
+fileread=open("piano.txt", 'r')
 
 for line in fileread:
  y.append(float(line))
@@ -29,9 +29,14 @@ delt=2*np.pi/len(y)
 while(x[-1]<=np.pi):
  x.append(x[-1]+delt)
 
-
+aux1=max(x)/1000
+aux2=max(y)/1000
 for i in xrange(1,m):
  xj,yj=akbk(x,y,i)
+# if(xj<aux1/1000):
+#  xj=0
+# if(yj<aux2/1000):
+#  yj=0
  print xj,yj, i
 print ''
 print ''
