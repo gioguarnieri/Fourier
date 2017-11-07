@@ -5,7 +5,7 @@ import sys
 import numpy as np
 xi=-np.pi
 
-fileread=open('teste2.dat','r')
+fileread=open(sys.argv[1],'r')
 ak=[]
 bk=[]
 x=[xi]
@@ -26,11 +26,11 @@ for i in xrange(0,len(ak)):
  if(aux2>bk[i]):
   bk[i]=0
 
-while(x[-1]<=np.pi):
+while(x[-1]<=np.pi+delt):
  soma=0
- for i in xrange(0,len(ak)):
+ for i in xrange(1,len(ak)):
   soma=soma+ak[i]*np.cos(2*np.pi*i*x[-1]/len(ak))+bk[i]*np.sin(2*np.pi*i*x[-1]/len(bk))
- soma=soma/len(ak)
- y.append(soma) 
+ soma=soma+ak[-1]*np.cos(i*x[-1])+ak[0]/2
+ y.append(soma)
  print x[-1], y[-1]
  x.append(x[-1]+delt)
